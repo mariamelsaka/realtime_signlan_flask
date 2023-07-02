@@ -1,0 +1,33 @@
+.row .col-4{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+@media(max-width:360px),(max-width:375px){
+    
+    .row {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .row .col-6 .card{
+        position: relative;
+        right: 25px;
+        width: 400px;
+    }
+    .row .col-6{
+        width:490px;
+    }
+
+
+    footer{
+    width: 600px;
+    }
+}
+
+.row .col-6 .card {
+    margin-left: 40px;
+}

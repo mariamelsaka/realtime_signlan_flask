@@ -1,0 +1,50 @@
+/* start audio */
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+* {
+font-family: "Berlin Sans FB",'Droid Arabic Kufi'; 
+}
+.card_video .row .col-4{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    }
+
+.card_video .row .col-4 img{ 
+        margin-bottom: 20px;
+    }
+
+    /* end audio */
+    
+    @media(max-width:360px),(max-width:375px){
+    .card_video .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+
+    .card_video .row .col-4 .card{
+      
+       position: relative;
+       right:10px;
+    
+        }
+    .card_video .row .col-4 .card-body{
+    width: 400px;
+    
+
+    }
+
+    footer{
+        width: 600px;
+    }
+    }
+
+    .card_video .row .col-4 .card{
+        width: 400px;
+        margin-left: 20px;
+    }
+
+    .card_video .row .col-4 .card .card-body{
+        height: 350px;
+    }
+    

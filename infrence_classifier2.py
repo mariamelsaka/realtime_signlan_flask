@@ -20,11 +20,10 @@ mp_drawing_styles = mp.solutions.drawing_styles
 hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.3)
 
 
-labels_dict = {0: 'alef',
-               1: 'bah', 2: 'tah',3:'thah',4:'jeem',5:'hah',6:'khah',7:'dal',8:'thal',9:'reh',10:'zain',11:'seen',12:'sheen'
-               ,13:'sad',14:'dad',15:'tah',16:'zah',17:'ain',18:'ghain',19:'feh',20:'qaf',21:'kaf',22:'lam',23:'meem',
-               24:'noon',25:'heh',26:'waw',27:'yeh',28:'teh_marbouta',29:'laa',30:'incorrect',31:'incorrect',32:'incorrect'}
-# labels_dict=['alef','bah','tah','thah','incorrect']
+labels_dict = {0: 'min',1: 'thanks',2: 'please',4:'good',5:'bad',
+               6:'helove', 7:'dad',8:'mom', 9:'grand' ,10:'sad'
+               ,11:'iloveu'}
+
 
 class Video(object):
     def __init__(self):
@@ -82,8 +81,8 @@ class Video(object):
 
             predicted_character = labels_dict[int(prediction[0])]
 
-            if predicted_character == 'alef':
-                text = "الف"
+            if predicted_character == 'min':
+                text = "دقائق"
                 reshaped_text = arabic_reshaper.reshape(text)
                 bidi_text = get_display(reshaped_text)
                 fontpath = "arial.ttf"
@@ -95,8 +94,8 @@ class Video(object):
                 text_y = int((H - text_size[1]) / 2)
                 draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
                 frame = np.array(img_pil)
-            elif predicted_character == 'bah':
-                text = "باء"
+            elif predicted_character == 'thanks':
+                text = "شكرا"
                 reshaped_text = arabic_reshaper.reshape(text)
                 bidi_text = get_display(reshaped_text)
                 fontpath = "arial.ttf"
@@ -108,8 +107,8 @@ class Video(object):
                 text_y = int((H - text_size[1]) / 2)
                 draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
                 frame = np.array(img_pil)
-            elif predicted_character == 'tah':
-                text = "تاء"
+            elif predicted_character == 'please':
+                text = "لو سمحت"
                 reshaped_text = arabic_reshaper.reshape(text)
                 bidi_text = get_display(reshaped_text)
                 fontpath = "arial.ttf"
@@ -121,8 +120,8 @@ class Video(object):
                 text_y = int((H - text_size[1]) / 2)
                 draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
                 frame = np.array(img_pil)
-            elif predicted_character == 'thah':
-                text = "ثاء"
+            elif predicted_character == 'good':
+                text = "جيد"
                 reshaped_text = arabic_reshaper.reshape(text)
                 bidi_text = get_display(reshaped_text)
                 fontpath = "arial.ttf"
@@ -134,8 +133,8 @@ class Video(object):
                 text_y = int((H - text_size[1]) / 2)
                 draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
                 frame = np.array(img_pil)
-            elif predicted_character == 'jeem':
-                text = "جيم"
+            elif predicted_character == 'bad':
+                text = "سيء"
                 reshaped_text = arabic_reshaper.reshape(text)
                 bidi_text = get_display(reshaped_text)
                 fontpath = "arial.ttf"
@@ -147,112 +146,8 @@ class Video(object):
                 text_y = int((H - text_size[1]) / 2)
                 draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
                 frame = np.array(img_pil)
-            elif predicted_character == 'hah':
-                text = "هاء"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'khah':
-                text = "خاء"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'dal':
-                text = "دال"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'thal':
-                text = "ذال"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'reh':
-                text = "راء"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'zain':
-                text = "زاي"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'seen':
-                text = "سين"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'sheen':
-                text = "شين"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'sad':
-                text = "صاد"
+            elif predicted_character == 'helove':
+                text = "يحب"
                 reshaped_text = arabic_reshaper.reshape(text)
                 bidi_text = get_display(reshaped_text)
                 fontpath = "arial.ttf"
@@ -265,7 +160,7 @@ class Video(object):
                 draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
                 frame = np.array(img_pil)
             elif predicted_character == 'dad':
-                text = "ضاد"
+                text = "اب"
                 reshaped_text = arabic_reshaper.reshape(text)
                 bidi_text = get_display(reshaped_text)
                 fontpath = "arial.ttf"
@@ -277,8 +172,8 @@ class Video(object):
                 text_y = int((H - text_size[1]) / 2)
                 draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
                 frame = np.array(img_pil)
-            elif predicted_character == 'tah':
-                text = "ثاه"
+            elif predicted_character == 'mom':
+                text = "امي"
                 reshaped_text = arabic_reshaper.reshape(text)
                 bidi_text = get_display(reshaped_text)
                 fontpath = "arial.ttf"
@@ -290,8 +185,8 @@ class Video(object):
                 text_y = int((H - text_size[1]) / 2)
                 draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
                 frame = np.array(img_pil)
-            elif predicted_character == 'zah':
-                text = "زاه"
+            elif predicted_character == 'grand':
+                text = "جد"
                 reshaped_text = arabic_reshaper.reshape(text)
                 bidi_text = get_display(reshaped_text)
                 fontpath = "arial.ttf"
@@ -303,8 +198,8 @@ class Video(object):
                 text_y = int((H - text_size[1]) / 2)
                 draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
                 frame = np.array(img_pil)
-            elif predicted_character == 'ain':
-                text = "عين"
+            elif predicted_character == 'sad':
+                text = "محبط"
                 reshaped_text = arabic_reshaper.reshape(text)
                 bidi_text = get_display(reshaped_text)
                 fontpath = "arial.ttf"
@@ -316,179 +211,8 @@ class Video(object):
                 text_y = int((H - text_size[1]) / 2)
                 draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
                 frame = np.array(img_pil)
-            elif predicted_character == 'thah':
-                text = "ثاء"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'ghain':
-                text = "غين"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'feh':
-                text = "فاء"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'qaf':
-                text = "قاف"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'kaf':
-                text = "كاف"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'lam':
-                text = "لام"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'meem':
-                text = "ميم"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'noon':
-                text = "نون"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'heh':
-                text = "هاء"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'waw':
-                text = "واو"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'yeh':
-                text = "ياء"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-                frame = np.array(img_pil)
-            elif predicted_character == 'teh_marbouta':
-                text = "تاء مربوطه"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-                frame = np.array(img_pil)
-            elif predicted_character == 'laa':
-                text = "لا"
-                reshaped_text = arabic_reshaper.reshape(text)
-                bidi_text = get_display(reshaped_text)
-                fontpath = "arial.ttf"
-                font = ImageFont.truetype(fontpath, 32)
-                img_pil = Image.fromarray(frame)
-                draw = ImageDraw.Draw(img_pil)
-                text_size = draw.textsize(bidi_text, font=font)
-                text_x = int((W - text_size[0]) / 2)
-                text_y = int((H - text_size[1]) / 2)
-                draw.text((text_x, text_y), bidi_text, font=font, fill=(0, 0, 0))
-                frame = np.array(img_pil)
-            elif predicted_character == 'incorrect':
-                text = "خاطئ"
+            elif predicted_character == 'iloveu':
+                text = "احبك"
                 reshaped_text = arabic_reshaper.reshape(text)
                 bidi_text = get_display(reshaped_text)
                 fontpath = "arial.ttf"
